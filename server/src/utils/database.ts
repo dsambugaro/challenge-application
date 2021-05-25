@@ -6,7 +6,7 @@ import Config from '../config';
  */
 class DataBase {
   private DataBaseURL =
-    process.env.DB_URL || 'mongodb://localhost:27017/challenge_db';
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/challenge_db';
 
   /**
    * Create a DataBase connection

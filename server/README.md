@@ -14,9 +14,9 @@ $ npm install
 ### Environment variables
 This application uses the following environment variables:
 ```javascript
-SECRET_KEY // secret Key for JWT token generation
-DB_URL     // URL on which connects to MongoDB
-PORT       // Port on which the server will listen
+SECRET_KEY   // secret Key for JWT token generation
+MONGODB_URI  // URL on which connects to MongoDB
+PORT         // Port on which the server will listen
 ```
 
 ----
