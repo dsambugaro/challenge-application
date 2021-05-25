@@ -65,7 +65,7 @@ const UserView: FC<WithUserProps> = ({ user }: WithUserProps) => {
         }
         isLoadingContent={isLoadingPage}
         onChangePage={onChangePage}
-        addRoute={user.role === UserRole.EMPLOYEE ? '' : '/users/new'}
+        addRoute={user.role === UserRole.EMPLOYEE ? '' : '/challenge/users/new'}
       >
         {pageData[currentPage]
           ? pageData[currentPage].content.map(item => {
@@ -81,7 +81,9 @@ const UserView: FC<WithUserProps> = ({ user }: WithUserProps) => {
                     style={{ margin: 0 }}
                     showChart={false}
                     editRoute={
-                      user.role === UserRole.EMPLOYEE ? '' : `/users/${item.id}`
+                      user.role === UserRole.EMPLOYEE
+                        ? ''
+                        : `/challenge/users/${item.id}`
                     }
                   >
                     <Card.Meta

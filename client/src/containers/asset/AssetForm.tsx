@@ -97,7 +97,7 @@ const AssetForm: FC<WithUserProps> = ({ user }: WithUserProps) => {
       });
   }, []); // eslint-disable-line
 
-  const onGoBack = () => history.push('/assets');
+  const onGoBack = () => history.push('/challenge/assets');
 
   const onDelete = () => {
     axios

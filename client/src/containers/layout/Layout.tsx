@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link, Switch, Route, Redirect } from 'react-router-dom';
+import { Link, Switch } from 'react-router-dom';
 import { Layout, Menu, Row, Col, Typography, Image } from 'antd';
 import {
   BankOutlined,
@@ -31,30 +31,30 @@ import { WithUserProps, UserRole } from '../../commons';
 const items = [
   {
     icon: <AreaChartOutlined />,
-    path: '/dashboard',
+    path: '/challenge/dashboard',
     label: 'Dashboard',
   },
   {
     icon: <BankOutlined />,
-    path: '/companies',
+    path: '/challenge/companies',
     label: 'Companies',
     blackList: [UserRole.EMPLOYEE],
   },
   {
     icon: <GoldOutlined />,
-    path: '/units',
+    path: '/challenge/units',
     label: 'Units',
     blackList: [UserRole.EMPLOYEE],
   },
   {
     icon: <TeamOutlined />,
-    path: '/users',
+    path: '/challenge/users',
     label: 'Users',
     blackList: [UserRole.EMPLOYEE],
   },
   {
     icon: <TagsOutlined />,
-    path: '/assets',
+    path: '/challenge/assets',
     label: 'Assets',
   },
 ];
@@ -139,30 +139,50 @@ const MainLayout: FC<WithUserProps> = ({ user }: WithUserProps) => {
           }}
         >
           <Switch>
-            <SecurityRoute path={'/dashboard'} component={DashboardView} />
-            <SecurityRoute exact path={'/assets'} component={AssetView} />
-            <SecurityRoute path={'/assets/:id'} component={AssetForm} />
-            {user.role !== UserRole.EMPLOYEE && ( // Routes that emplayee don't have access
+            <SecurityRoute
+              path={'/challenge/dashboard'}
+              component={DashboardView}
+            />
+            <SecurityRoute
+              exact
+              path={'/challenge/assets'}
+              component={AssetView}
+            />
+            <SecurityRoute
+              path={'/challenge/assets/:id'}
+              component={AssetForm}
+            />
+            {user.role !== UserRole.EMPLOYEE && ( // Routes that employee don't have access
               <>
                 <SecurityRoute
                   exact
-                  path={'/companies'}
+                  path={'/challenge/companies'}
                   component={CompanyView}
                 />
                 <SecurityRoute
-                  path={'/companies/:id'}
+                  path={'/challenge/companies/:id'}
                   component={CompanyForm}
                 />
-                <SecurityRoute exact path={'/units'} component={UnitView} />
-                <SecurityRoute path={'/units/:id'} component={UnitForm} />
-                <SecurityRoute exact path={'/users'} component={UserView} />
-                <SecurityRoute path={'/users/:id'} component={UserForm} />
+                <SecurityRoute
+                  exact
+                  path={'/challenge/units'}
+                  component={UnitView}
+                />
+                <SecurityRoute
+                  path={'/challenge/units/:id'}
+                  component={UnitForm}
+                />
+                <SecurityRoute
+                  exact
+                  path={'/challenge/users'}
+                  component={UserView}
+                />
+                <SecurityRoute
+                  path={'/challenge/users/:id'}
+                  component={UserForm}
+                />
               </>
             )}
-            <Route
-              path='/*'
-              render={() => <Redirect to='/dashboard' push={true} />}
-            />
           </Switch>
         </Content>
       </Layout>

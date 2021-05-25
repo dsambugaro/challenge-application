@@ -57,7 +57,7 @@ const CompanyForm: FC = () => {
       });
   }, [form, id]);
 
-  const onGoBack = () => history.push('/companies');
+  const onGoBack = () => history.push('/challenge/companies');
 
   const onDelete = () => {
     axios

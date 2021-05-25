@@ -24,7 +24,7 @@ const Login: FC<LoginProps> = ({ user, loginConnect }: LoginProps) => {
 
   useEffect(() => {
     if (user && user.token) {
-      history.push('/dashboard');
+      history.push('/challenge/dashboard');
     }
   });
 
@@ -37,7 +37,7 @@ const Login: FC<LoginProps> = ({ user, loginConnect }: LoginProps) => {
           const user = response.data;
           loginConnect(user);
           setIsLogging(false);
-          history.push('/dashboard');
+          history.push('/challenge/dashboard');
         }
       })
       .catch(error => {

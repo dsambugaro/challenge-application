@@ -52,7 +52,7 @@ const UnitForm: FC<WithUserProps> = ({ user }: WithUserProps) => {
       });
   }, [form, id]);
 
-  const onGoBack = () => history.push('/units');
+  const onGoBack = () => history.push('/challenge/units');
 
   const onDelete = () => {
     axios

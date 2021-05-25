@@ -116,7 +116,7 @@ const UnitView: FC<WithUserProps> = ({ user }: WithUserProps) => {
         isLoadingSummary={isLoadingSummary}
         onChangePage={onChangePage}
         onChangeCurrentChart={onChangeCurrentChart}
-        addRoute={user.role === UserRole.EMPLOYEE ? '' : '/units/new'}
+        addRoute={user.role === UserRole.EMPLOYEE ? '' : '/challenge/units/new'}
       >
         {pageData[currentPage]
           ? pageData[currentPage].content.map(item => {
@@ -126,7 +126,9 @@ const UnitView: FC<WithUserProps> = ({ user }: WithUserProps) => {
                   highcharts={Highcharts}
                   isLoadingReports={isLoadingReports}
                   editRoute={
-                    user.role === UserRole.EMPLOYEE ? '' : `/units/${item.id}`
+                    user.role === UserRole.EMPLOYEE
+                      ? ''
+                      : `/challenge/units/${item.id}`
                   }
                   data={getReportsFromData(
                     filterReportsDataBy(reportData, 'unit', item.id),

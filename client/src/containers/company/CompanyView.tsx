@@ -116,7 +116,9 @@ const CompanyView: FC<WithUserProps> = ({ user }: WithUserProps) => {
         isLoadingSummary={isLoadingSummary}
         onChangePage={onChangePage}
         onChangeCurrentChart={onChangeCurrentChart}
-        addRoute={user.role === UserRole.ADMIN ? '/companies/new' : ''}
+        addRoute={
+          user.role === UserRole.ADMIN ? '/challenge/companies/new' : ''
+        }
       >
         {pageData[currentPage]
           ? pageData[currentPage].content.map(item => {
@@ -125,7 +127,7 @@ const CompanyView: FC<WithUserProps> = ({ user }: WithUserProps) => {
                   key={item.id}
                   highcharts={Highcharts}
                   isLoadingReports={isLoadingReports}
-                  editRoute={`/companies/${item.id}`}
+                  editRoute={`/challenge/companies/${item.id}`}
                   data={getReportsFromData(
                     filterReportsDataBy(reportData, 'company', item.id),
                   )}

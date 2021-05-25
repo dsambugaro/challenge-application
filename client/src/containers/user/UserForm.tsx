@@ -56,7 +56,7 @@ const UserForm: FC<WithUserProps> = (props: WithUserProps) => {
       });
   }, [form, id]);
 
-  const onGoBack = () => history.push('/users');
+  const onGoBack = () => history.push('/challenge/users');
 
   const onDelete = () => {
     axios

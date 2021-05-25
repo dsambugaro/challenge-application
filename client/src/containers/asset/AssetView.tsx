@@ -99,7 +99,9 @@ const AssetView: FC<WithUserProps> = ({ user }: WithUserProps) => {
         isLoadingSummary={isLoadingSummary}
         onChangePage={onChangePage}
         showChartSelectors={false}
-        addRoute={user.role === UserRole.EMPLOYEE ? '' : '/assets/new'}
+        addRoute={
+          user.role === UserRole.EMPLOYEE ? '' : '/challenge/assets/new'
+        }
       >
         {pageData[currentPage]
           ? pageData[currentPage].content.map(item => {
@@ -108,7 +110,7 @@ const AssetView: FC<WithUserProps> = ({ user }: WithUserProps) => {
                   key={item.id}
                   highcharts={Highcharts}
                   healthChart={true}
-                  editRoute={`/assets/${item.id}`}
+                  editRoute={`/challenge/assets/${item.id}`}
                   data={item.healthscore}
                 >
                   <Row>

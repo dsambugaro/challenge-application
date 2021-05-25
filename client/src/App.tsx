@@ -15,7 +15,7 @@ import { Layout, Login } from './containers';
 import { SecurityRoute } from './components';
 import './App.css';
 
-axiosSetup('http://localhost:8000');
+axiosSetup('https://challenge-application.herokuapp.com');
 
 interface AppProps extends WithUserProps {
   checkAuthenticationConnect: () => void;
@@ -29,9 +29,14 @@ const App: FC<AppProps> = ({ user, checkAuthenticationConnect }: AppProps) => {
   const app = user && user.token !== undefined && (
     <Router>
       <Switch>
+        <Route
+          exact
+          path='/'
+          render={() => <Redirect to='/challenge/dashboard' push={true} />}
+        />
         <Route path='/login' component={Login} />
-        <SecurityRoute path='/' component={Layout} />
-        <Route path='*' render={() => <Redirect to='/' push={true} />} />
+        <SecurityRoute path='/challenge' component={Layout} />
+        <Route path='*' render={() => <Redirect to='/login' push={true} />} />
       </Switch>
     </Router>
   );

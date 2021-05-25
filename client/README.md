@@ -27,7 +27,7 @@ The build result will be in `build` folder.
 ## Development
 To run client in development mode, run:
 ```console
-$ npm start
+$ npm run dev
 ```
 
 ### Run Linter
