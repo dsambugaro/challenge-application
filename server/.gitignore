@@ -1,0 +1,12 @@
+### dotenv ###
+.env
+
+### typescript ###
+dist/
+
+### VisualStudioCode ###
+.vscode/
+
+# Dependency directories
+node_modules/
+jspm_packages/

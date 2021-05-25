@@ -1,0 +1,10 @@
+.dashboard-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.chart-wrapper {
+  margin: 15px;
+  width: 35vw;
+}

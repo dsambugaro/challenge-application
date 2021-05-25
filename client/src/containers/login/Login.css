@@ -1,0 +1,26 @@
+.card {
+  width: 50vh;
+  height: 50vh;
+}
+
+.card > div:first-child {
+  height: -webkit-fill-available;
+}
+
+.card-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #001529;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  height: -moz-available;
+}
